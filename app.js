@@ -51,6 +51,10 @@ buttonDomElement.addEventListener('click', function () {
     
     //- assegno al quadratino il colore azzurro, dando al quadratino corrente la classe blue creata in css, attraverso classList.add
         currentSquareElement.classList.add('blue');
+            //- SE il numero del quadratino è contenuto nell'array delle bombe
+            if (numberBombs.includes(parseInt(currentSquareElement.innerHTML))) {
+                currentSquareElement.classList.add('red');// - allora il colore del quadratino diventa rosso
+            }
         })
     }
 })
