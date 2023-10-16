@@ -27,8 +27,7 @@ console.log(buttonDomElement);
 //  - al quale click partirà l'intera funzione
 buttonDomElement.addEventListener('click', function () {
     squaresContainerDomElement.innerHTML = ''; //- per far si che non si aggiungano altri quadrati oltre i 100 già generati al primo click, assegno il contenuto a stringa vuota
-
-    //- Imvoco la funzione per generare randomicamente i 16 numeri 
+//- Invoco la funzione per generare randomicamente i 16 numeri 
     const numberBombs = randomNumbersBombs(1, 100, 16);
 	console.log(numberBombs);
     //  - adesso posso generare i 100 quadrati attraverso il ciclo for
@@ -59,9 +58,9 @@ buttonDomElement.addEventListener('click', function () {
 function randomNumbersBombs(minRange, maxRange, number) {
 	const arrayBombs = [];
 //  - creo il ciclo while per fermare la lunghezza dell'array a 16, fino a quando non ci sono 16 numeri tutti diversi tra loro 
-    while (arrayBombs.lenght < number) {
-        const n = RandomNumber(minRange, maxRange); //- generare il numero random tra il range stabilito
-        console.log(arrayBombs.includes(n));
+    while (arrayBombs.length < number) {
+        const n = randomNumber(minRange, maxRange); //- generare il numero random tra il range stabilito
+        console.log(n);
         //- SE n non è presente nell'array 
         if (arrayBombs.includes(n) === false) {
 			// pusho il numero nell'array 
@@ -72,7 +71,7 @@ function randomNumbersBombs(minRange, maxRange, number) {
     return arrayBombs;
 }
 //- Formula per generare il numero random
-function getRandomIntInclusive(min, max) {
+function randomNumber(min, max) {
 	min = Math.ceil(min);
 	max = Math.floor(max);
 	return Math.floor(Math.random() * (max - min + 1) + min); 
