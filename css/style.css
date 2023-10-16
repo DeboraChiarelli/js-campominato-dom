@@ -36,3 +36,22 @@
 .blue {
     background-color: lightblue;
 }
+
+#pointscontainer {
+    width: 200px;
+    min-height: 200px;
+    border: 2px solid white;  
+}
+
+.points, .results {
+    color: white;
+    padding: 20px;
+    font-size: 18px;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.results .gameover {
+    color: red;
+    font-size: 25px;
+}

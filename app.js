@@ -4,8 +4,8 @@ Ci saranno quindi 10 caselle per ognuna delle 10 righe.
 Quando l’utente clicca su ogni cella, la cella cliccata si colora di azzurro ed emetto un messaggio in console 
 con il numero della cella cliccata.
 Il computer deve generare 16 numeri casuali nello stesso range della difficoltà prescelta: le bombe. 
-Attenzione: nella stessa cella può essere 
-posizionata al massimo una bomba, perciò nell’array delle bombe non potranno esserci due numeri uguali.
+Attenzione: nella stessa cella può essere posizionata al massimo una bomba, perciò nell’array delle bombe 
+non potranno esserci due numeri uguali.
 In seguito l’utente clicca su una cella:
 se il numero è presente nella lista dei numeri generati - abbiamo calpestato una bomba - la cella si colora di rosso e la 
 partita termina.
@@ -27,7 +27,8 @@ console.log(buttonDomElement);
 //  - al quale click partirà l'intera funzione
 buttonDomElement.addEventListener('click', function () {
     squaresContainerDomElement.innerHTML = ''; //- per far si che non si aggiungano altri quadrati oltre i 100 già generati al primo click, assegno il contenuto a stringa vuota
-//- Imvoco la funzione per generare randomicamente i 16 numeri 
+
+    //- Imvoco la funzione per generare randomicamente i 16 numeri 
     const numberBombs = randomNumbersBombs(1, 100, 16);
 	console.log(numberBombs);
     //  - adesso posso generare i 100 quadrati attraverso il ciclo for
@@ -56,5 +57,23 @@ buttonDomElement.addEventListener('click', function () {
 })
 //- Dichiaro la funzione per generare randomicamente i 16 numeri 
 function randomNumbersBombs(minRange, maxRange, number) {
-	const arraybombs = []
+	const arrayBombs = [];
+//  - creo il ciclo while per fermare la lunghezza dell'array a 16, fino a quando non ci sono 16 numeri tutti diversi tra loro 
+    while (arrayBombs.lenght < number) {
+        const n = RandomNumber(minRange, maxRange); //- generare il numero random tra il range stabilito
+        console.log(arrayBombs.includes(n));
+        //- SE n non è presente nell'array 
+        if (arrayBombs.includes(n) === false) {
+			// pusho il numero nell'array 
+			arrayBombs.push(n);
+		}
+    }
+    //- faccio ritornare l'array di numeri generati
+    return arrayBombs;
+}
+//- Formula per generare il numero random
+function getRandomIntInclusive(min, max) {
+	min = Math.ceil(min);
+	max = Math.floor(max);
+	return Math.floor(Math.random() * (max - min + 1) + min); 
 }
