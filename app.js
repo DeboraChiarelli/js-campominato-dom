@@ -27,9 +27,9 @@ console.log(buttonDomElement);
 //  - al quale click partirà l'intera funzione
 buttonDomElement.addEventListener('click', function () {
     squaresContainerDomElement.innerHTML = ''; //- per far si che non si aggiungano altri quadrati oltre i 100 già generati al primo click, assegno il contenuto a stringa vuota
-   
-    const bombs = randomNumbersBombs(1, 100, 16);
-	console.log(bombs);
+//- Imvoco la funzione per generare randomicamente i 16 numeri 
+    const numberBombs = randomNumbersBombs(1, 100, 16);
+	console.log(numberBombs);
     //  - adesso posso generare i 100 quadrati attraverso il ciclo for
     for (let i = 0; i < 100; i++) {
     let n = i + 1;
@@ -54,5 +54,7 @@ buttonDomElement.addEventListener('click', function () {
         })
     }
 })
-
-
+//- Dichiaro la funzione per generare randomicamente i 16 numeri 
+function randomNumbersBombs(minRange, maxRange, number) {
+	const arraybombs = []
+}
